@@ -12,9 +12,11 @@
 </head>
 <body ng-app="inicio" class="ng-cloak">
 <div ng-controller="navegacion">
-    <h1>laboratorios de Cómputo</h1>
     <a class="btn btn-danger" href="#/incidencias">Incindencias</a>
-    <a class="btn btn-danger" href="#/apartados">Incindencias</a>
+    <a class="btn btn-danger" href="#/apartados">Apartados</a>
+    <a class="btn btn-danger" href="#/home">Home</a>
+    <!-- Importantisimo, con ng-view automaticamente aqui inyectamos als vistas con router -->
+    <div ng-view class="container"></div>
 </div>
 <script src="node_modules/jquery/dist/jquery.js"></script>
 <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>

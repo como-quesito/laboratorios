@@ -4,8 +4,8 @@
 angular.module('inicio',['ngRoute','ngResource','ngFileUpload'])
     .config(function($routeProvider,$httpProvider){
         $routeProvider.when('/',{
-            templateUrl:'inicio.html',
-            controller:'inicio'
+            templateUrl:'home.html',
+            controller:'home'
         }).when('/ingresar',{
             templateUrl:'ingresar.html',
             controller:'navegacion'
@@ -19,29 +19,30 @@ angular.module('inicio',['ngRoute','ngResource','ngFileUpload'])
         }).
             otherwise('/');
        // $httpProvider.defaults.headers.common['X-Requested-With']='XMLHttpRequest';
-    })
-    .controller('inicio', function($scope, $http){
+    }).controller('home', function($scope, $http){
         $scope.mensaje='';
-        console.log("controlador de inicio")
-        /*
         $http.get('recurso').success(function(data) {
             $scope.saludo = data;
-            console.log('Este es un recuros');
+            console.log('Ya estas en home');
         })
-*/
+
 
     }).controller('navegacion',function($rootScope,$scope,$http,$location,$route){
         console.log("se cargo el controlador de navegacion")
         $scope.tab = function(route) {
             return $route.current && route === $route.current.controller;
         };
+        $rootScope.loading=false;
 
     }).controller('incidencias',function($rootScope,$scope,Upload, $timeout,$rootScope, $http,$resource,$log) {
         $scope.hola = "hola desde los reactivos";
         console.log('Controlador incidencias');
+    }).controller('home',function($rootScope,$scope,Upload, $timeout,$rootScope, $http,$resource,$log) {
+        $scope.hola = "hola desde los reactivos";
+        console.log('Controlador home');
     })
        .controller('apartados',function($rootScope,$scope,Upload, $timeout,$rootScope, $http,$resource,$log) {
     $scope.hola = "hola desde los reactivos";
-    console.log('Controlador incidencias');
+    console.log('Controlador apartados');
 });
 
