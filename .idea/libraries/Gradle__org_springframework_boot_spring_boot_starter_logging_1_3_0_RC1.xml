@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.springframework.boot:spring-boot-starter-logging:1.3.0.RC1">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-logging/1.3.0.RC1/ca56d6f436bc30d140c4f26318dc73eb0c0a7952/spring-boot-starter-logging-1.3.0.RC1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-logging/1.3.0.RC1/14055a4aeeb5bd3c68e97c5cf19bac513fa572e6/spring-boot-starter-logging-1.3.0.RC1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
