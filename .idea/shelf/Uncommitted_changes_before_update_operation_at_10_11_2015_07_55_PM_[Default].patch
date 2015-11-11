@@ -1,0 +1,271 @@
+Index: src/main/resources/static/incidencias.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/resources/static/incidencias.html	(revision f837e698322eadd4e1cd92463459c4f7fc61d5e9)
++++ src/main/resources/static/incidencias.html	(revision )
+@@ -2,7 +2,12 @@
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
++    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+-    <title></title>
++        <title></title>
++
++
++
++
+ </head>
+ <body>
+ <h1>Incidencias</h1>
+Index: src/main/java/org/unitec/ControladorPrincipal.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- src/main/java/org/unitec/ControladorPrincipal.java	(revision f837e698322eadd4e1cd92463459c4f7fc61d5e9)
++++ src/main/java/org/unitec/ControladorPrincipal.java	(revision )
+@@ -12,6 +12,6 @@
+ 
+     @RequestMapping("/")
+     public String  inicio(){
+-        return "inicio.html";
++        return "pruebita.html";
+     }
+ }
+Index: src/main/resources/static/css/mis-estilos.css
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- src/main/resources/static/css/mis-estilos.css	(revision )
++++ src/main/resources/static/css/mis-estilos.css	(revision )
+@@ -0,0 +1,74 @@
++@font-face {
++    src: url(RobotoSlab-Thin.ttf);
++    font-family:'principal';
++}
++body{
++    background-color:#3f67ac;
++    font-family:'principal';
++ }
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++#primero{
++    background-color: green;
++    width: 100px;
++    height: 100px;
++    margin-bottom: 10px;
++    padding-left: 10px;
++    padding-right: 10px;
++    padding-top: 10px;
++    border-radius: 10px;
++    box-shadow: 2px 2px 2px 2px black;
++}
++#segundo{
++    background-color: yellow;
++    width: 100px;
++    height: 100px;
++    margin-bottom: 10px;
++}
++#tercero{
++    background-color: red;
++    width: 100px
++    height: 100px;
++    margin-right: 10px;
++}
++#cuarto{
++    background-color: blue;
++    width: 100px
++    height: 100px;
++    margin-bottom: 10px;
++}
+\ No newline at end of file
+Index: src/main/resources/static/pruebitasdaniel.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- src/main/resources/static/pruebitasdaniel.html	(revision )
++++ src/main/resources/static/pruebitasdaniel.html	(revision )
+@@ -0,0 +1,28 @@
++<!DOCTYPE html>
++<html lang="en">
++<head>
++    <meta charset="UTF-8">
++    <link rel="stylesheet" href="css/mis-estilos.css">
++    <title></title>
++</head>
++<body>
++
++        <div id="primero">
++            Mi primer DIV
++        </div>
++
++        <div id="segundo">
++            Mi segudo DIV
++        </div>
++
++        <span id="tercero">
++            Mi tercer SPAN
++        </span>
++
++        <span id="cuarto">
++            Mi cuarto SPAN
++        </span>
++
++
++</body>
++</html>
+\ No newline at end of file
+Index: src/main/resources/static/pruebita.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- src/main/resources/static/pruebita.html	(revision )
++++ src/main/resources/static/pruebita.html	(revision )
+@@ -0,0 +1,106 @@
++<!DOCTYPE html>
++<html lang="en">
++<head>
++    <meta charset="UTF-8">
++    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
++    <link rel="stylesheet" href="css/mis-estilos.css">
++    <title></title>
++</head>
++
++<body>
++
++
++<h1>Incidencias de Laboratorios de Computo y Restiradores</h1>
++<hr>
++<p class="text-right"><B>*CAMPOS OBLIGATORIOS</B></p>
++
++
++<br><br>
++
++<div class="container">
++    <div class="row">
++        <div class='col-sm-6'>
++            <div class="form-group">
++                <div class='input-group date' id='datetimepicker5'>
++                    <input type='text' class="form-control" />
++                    <span class="input-group-addon">
++                        <span class="glyphicon glyphicon-calendar"></span>
++                    </span>
++                </div>
++            </div>
++        </div>
++        <script type="text/javascript">
++            $(function () {
++                $('#datetimepicker5').datetimepicker({
++                    defaultDate: "11/1/2013",
++                    disabledDates: [
++                        moment("12/25/2013"),
++                        new Date(2013, 11 - 1, 21),
++                        "11/22/2013 00:53"
++                    ]
++                });
++            });
++        </script>
++    </div>
++</div>
++
++<br><br><br>
++
++
++
++<div class="container-fluid">
++    <div class="row">
++        <div class="col-md-6">
++            <textarea class="form-control" rows="3" " placeholder="Numeros de PC´s" style="color: #080808;font-weight: bolder"></textarea>
++                 </div>
++        <div class="col-md-6">
++            <textarea class="form-control" rows="3" placeholder="Comentario de Profesores" style="color: #080808;font-weight: bolder"></textarea>
++        </div>
++        <div class="container-fluid">
++            <div class="row">
++                <div class="col-md-6">
++                    <textarea class="form-control" rows="3" placeholder="Comentario de Alumnos" style="color: #080808;font-weight: bolder"></textarea>
++                </div>
++                <div class="col-md-6">
++                    <textarea class="form-control" rows="3" placeholder="Observaciones Generales" style="color: #080808;font-weight: bolder"></textarea>
++                </div>
++            </div>
++        </div>
++
++    </div>
++</div>
++
++<br><br><br>
++
++
++<button type="button"
++        class="btn btn-success btn-lg btn-block well center-block"
++        style="max-width: 130px; max-height: 800px;">ENVIAR</button>
++
++
++
++
++
++
++<div style="color:#0000FF">
++    <h3>This is a heading</h3>
++    <p>This is a paragraph.</p>
++</div>
++
++<br><br><br>
++
++
++
++
++
++
++
++
++
++<script src="node_modules/jquery/dist/jquery.js"></script>
++<script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
++
++
++
++</body>
++</html>
+\ No newline at end of file
