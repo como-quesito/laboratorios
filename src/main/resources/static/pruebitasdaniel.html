@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
 
+    <link rel="stylesheet" href="bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
+
     <title></title>
 </head>
 <body>
@@ -275,7 +277,15 @@
 
 
 
-
+    <!- --
+    S E TE OLVIDO AGREGAR TODOS ESTOS ARCHIVOS DE JAVASCRIPT Y CSS QCON LOS QUE FUNCIONAL EL CALENDARIO QUE SON OOS QUE CONTIENE
+    LA CARPETA BOWER_COMPONNETS es muuuy importante que estos scripts los cargues antes de invocar tu codigo  donde tienes el script de
+    datatimepicker5
+    -->
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="bower_components/moment/min/moment.min.js"></script>
+    <script type="text/javascript" src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+    <script type="text/javascript" src="bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
 
 <script type="text/javascript">
     $(function () {
@@ -289,8 +299,13 @@
         });
     });
 </script>
-<script src="node_modules/jquery/dist/jquery.js"></script>
-<script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            $('#datetimepicker2').datetimepicker({
+            });
+        });
+    </script>
 
 
 
@@ -298,6 +313,7 @@
 
 
 
+</div>
 
 </body>
 </html>
