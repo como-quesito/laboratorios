@@ -1,0 +1,14 @@
+@font-face {
+    src: url(garto16.ttf);
+    font-family: gato;
+    font-size: 23px;
+}
+body{
+    font-family: gato;
+    font-size: 18px;
+    margin-left: 10px;
+    background-color: #5563E1;
+}
+.margen-izquierdo{
+    margin-left: 10px;
+}
