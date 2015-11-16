@@ -1,0 +1,38 @@
+@font-face {
+    src:url(RobotoSlab-Thin.ttf);
+    font-family: 'principal';
+}
+
+
+body{    background-color: #112299;
+        color: #000000;
+font-family: 'principal';
+}
+
+
+#primero{
+    background-color: green;
+    width: 100px;  height: 100px;
+    margin-bottom: 10px;
+    padding-left: 10px;
+    padding-top: 10px;
+    border-radius: 5%;
+    box-shadow: 1px 1px 2px 1px #101010;
+}
+
+#segundo{
+    background-color: yellow;
+    width: 100px;height: 100px;
+    margin-bottom: 10px;
+
+
+}
+#tercero{
+    background-color: darkred;
+    width: 100px;height: 100px;
+    margin-right: 10px;
+}
+#cuarto{
+    background-color: blue;
+    width: 100px;height: 100px;
+}

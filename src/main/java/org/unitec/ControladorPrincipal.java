@@ -12,6 +12,6 @@ public class ControladorPrincipal {
 
     @RequestMapping("/")
     public String  inicio(){
-        return "inicio.html";
+        return "pruebita.html";
     }
 }
