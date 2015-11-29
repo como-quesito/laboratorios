@@ -74,7 +74,7 @@ public  class ServicioApartado {
  */
 public void ACTUALIZARPorId(Apartado a){
     Update update = new Update();
-    update.set("edad", 20);
+    update.set("salon",a.getSalon());
     mongoTemplate.updateFirst(new Query(Criteria.where("id").is(a.getId())),update, Apartado.class);
 
 }
