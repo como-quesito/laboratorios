@@ -11,29 +11,36 @@
     <link rel="stylesheet" href="bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
 </head>
 <body>
+
 <div>
+
+
+
 <h1>Incidencias</h1>
-<div class="container container-fluid">
-    <div class="row">
-        <div class="col-lg-6">
-            <div class="form-group">
-                <label for="exampleInputEmail1">Correo electronico</label>
-                <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Email">
-            </div>
+<br>
+<!-- DATOS PRINCIPALES-->
+
+<div class="container-fluid margen-izquierdo">                               <!-- se ajusta dependiendo el ancho de PagWeb-->
+    <div class="row">                                       <!--  Introduce las filas que desee uno -->
+        <div class="col-md-1">                               <!-- Asigno el ancho de Columna-->
+            <select class="form-control input-sm"  style="color:#080808;font-weight:bolder;">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+                <option>11</option>
+                <option>12</option>
+            </select>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-4">
             <div class="form-group">
-                <label for="exampleInputEmail1">Nombre</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
-            </div>
-        </div>
-    </div>
-</div>
-<div class="container">
-    <div class="row">
-        <div class='col-sm-6'>
-            <div class="form-group">
-                <div class='input-group date' id='datetimepicker2'>
+                <div class='input-group date' id='datetimepicker5'>
                     <input type='text' class="form-control" />
                     <span class="input-group-addon">
                         <span class="glyphicon glyphicon-calendar"></span>
@@ -41,14 +48,276 @@
                 </div>
             </div>
         </div>
-        <script type="text/javascript">
-            $(function () {
-                $('#datetimepicker2').datetimepicker({
-                });
-            });
-        </script>
+        <div class="col-md-3">
+            <select class="form-control input-sm"  style="color:#000000;font-weight:bolder;">
+                <option>07-08:30</option>
+                <option>07-09</option>
+                <option>08:30:10</option>
+                <option>09:11</option>
+                <option>10-11:30</option>
+                <option>11:30-13</option>
+                <option>11-13</option>
+                <option>13-14:30</option>
+                <option>13-15</option>
+                <option>16-18</option>
+                <option>18-20</option>
+                <option>20:30-10</option>
+                <option>20-10</option>
+            </select>
+        </div>
+        <div class="col-md-4">
+            <select class="form-control input-sm"  style="color:#080808;font-weight:bolder;">
+                <option>T-101</option>
+                <option>T-102</option>
+                <option>T-10A</option>
+                <option>T-10B</option>
+                <option>T-104</option>
+                <option>T-105</option>
+                <option>T-106</option>
+                <option>T-107</option>
+                <option>T-201</option>
+                <option>T-202</option>
+                <option>T-203</option>
+                <option>T-204</option>
+                <option>T-205</option>
+                <option>T-206</option>
+                <option>SE</option>
+                <option>T-301</option>
+                <option>T-302</option>
+                <option>T-303</option>
+                <option>T-304</option>
+                <option>T-305</option>
+                <option>T-401</option>
+                <option>T-402</option>
+                <option>T-403</option>
+                <option>T-404</option>
+                <option>T-405</option>
+                <option>T-406</option>
+                <option>T-407</option>
+                <option>T-408</option>
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="cold-md-12">
+            <input type="text" class="form-control" placeholder="PROFESOR">
+        </div>
     </div>
 </div>
+
+
+
+<!-- DATOS DE INCIDENCIAS-->
+
+<h2>Incidencias de Alumnos</h2>
+
+
+<label class="checkbox-inline">
+    <input type="checkbox" name="inlineRadioOptions" id="inlineCheckbox1" value="option1"> Alumnos con Bebidas
+</label>
+<br>
+<label class="checkbox-inline">
+    <input type="checkbox" name="inlineRadioOptions" id="inlineCheckbox2" value="option2"> Alumnos con Celular
+</label>
+<br>
+<label class="checkbox-inline">
+    <input type="checkbox" name="inlineRadioOptions" id="inlineCheckbox3" value="option3"> Alumnos con Gorra
+</label>
+<br>
+<label class="checkbox-inline">
+    <input type="checkbox" name="inlineRadioOptions" id="inlineCheckbox4" value="option4"> Alumnos Comiendo
+</label>
+<br>
+<label class="checkbox-inline">
+    <input type="checkbox" name="inlineRadioOptions" id="inlineCheckbox5" value="option5"> Alumnos cortando en Mesa
+</label>
+<br>
+<label class="checkbox-inline">
+    <input type="checkbox" name="inlineRadioOptions" id="inlineCheckbox6" value="option6"> Alumnos en Redes Sociales
+</label>
+<br>
+<label class="checkbox-inline">
+    <input type="checkbox" name="inlineRadioOptions" id="inlineCheckbox7" value="option7"> Alumnos Maquillandose
+</label>
+<h2>Incidencias de Profesores</h2>
+<label class="checkbox-inline">
+    <input type="checkbox" name="inlineRadioOptions" id="inlineCheckbox8" value="option8"> Luces Prendidas
+</label>
+<br>
+<label class="checkbox-inline">
+    <input type="checkbox" name="inlineRadioOptions" id="inlineCheckbox9" value="option9"> Maquinas Prendidas
+</label>
+<br>
+<label class="checkbox-inline">
+    <input type="checkbox" name="inlineRadioOptions" id="inlineCheckbox10" value="option10"> Mesa Rayada
+</label>
+<br>
+<label class="checkbox-inline">
+    <input type="checkbox" name="inlineRadioOptions" id="inlineCheckbox11" value="option11"> Pc´s Desconectadas
+</label>
+<br>
+<label class="checkbox-inline">
+    <input type="checkbox" name="inlineRadioOptions" id="inlineCheckbox12" value="option12"> Pierde la Llave de la Sala
+</label>
+<br>
+<label class="checkbox-inline">
+    <input type="checkbox" name="inlineRadioOptions" id="inlineCheckbox13" value="option13"> Pizarron Sucio
+</label>
+<br>
+<label class="checkbox-inline">
+    <input type="checkbox" name="inlineRadioOptions" id="inlineCheckbox14" value="option14"> Sala Abierta
+</label>
+<br>
+<label class="checkbox-inline">
+    <input type="checkbox" name="inlineRadioOptions" id="inlineCheckbox15" value="option15"> Sala Desordenada
+</label>
+<br>
+<label class="checkbox-inline">
+    <input type="checkbox" name="inlineRadioOptions" id="inlineCheckbox16" value="option16"> Sala Sucia
+</label>
+<br>
+<label class="checkbox-inline">
+    <input type="checkbox" name="inlineRadioOptions" id="inlineCheckbox17" value="option17"> Salida Tarde
+</label>
+<br>
+<label class="checkbox-inline">
+    <input type="checkbox" name="inlineRadioOptions" id="inlineCheckbox18" value="option18"> Se lleva la Llave de la Sala
+</label>
+<br><br><br>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6">
+            <textarea class="form-control" rows="3" " placeholder="Numeros de PC´s" style="color: #080808;font-weight: bolder"></textarea>
+            <br>
+        </div>
+        <div class="col-md-6">
+            <textarea class="form-control" rows="3" " placeholder="Comentario de Alumnos" style="color: #080808;font-weight: bolder"></textarea>
+            <br>
+        </div>
+        <div class="row container-fluid">
+            <div class="col-md-6">
+                <textarea class="form-control" rows="3" " placeholder="Comentario de Profesores" style="color: #080808;font-weight: bolder"></textarea>
+            </div>
+            <div class="col-md-6">
+                <textarea class="form-control" rows="3" placeholder="Observaciones Generales" style="color: #080808;font-weight: bolder"></textarea>
+            </div>
+        </div>
+    </div>
+    <br>
+
+
+
+    <!-- PERSONAS QUE REPORTA-->
+
+
+    <h2>PERSONA QUE REPORTA INCIDENCIA*</h2>
+    <div class="radio">
+        <label>
+            <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+            Ing. Aaron Isaias Omaña Corona
+        </label>
+    </div>
+    <div class="radio">
+        <label>
+            <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+            Ing. Alfonso Ivan Ramirez Jimenez
+        </label>
+    </div>
+    <div class="radio">
+        <label>
+            <input type="radio" name="optionsRadios" id="optionsRadios3" value="option1" checked>
+            Lic. Cristian Parrao Rosales
+        </label>
+    </div>
+    <div class="radio">
+        <label>
+            <input type="radio" name="optionsRadios" id="optionsRadios4" value="option2">
+            Ing. Daniel Salazar Aragón
+        </label>
+    </div>
+    <div class="radio">
+        <label>
+            <input type="radio" name="optionsRadios" id="optionsRadios5" value="option1" checked>
+            Ing. Eduardo Valencia Palomino
+        </label>
+    </div>
+    <div class="radio">
+        <label>
+            <input type="radio" name="optionsRadios" id="optionsRadios6" value="option2">
+            Mtra. e Ing. Elizabeth Marin Paz
+        </label>
+    </div>
+    <div class="radio">
+        <label>
+            <input type="radio" name="optionsRadios" id="optionsRadios7" value="option1" checked>
+            Lic. Griselda Pineda González
+        </label>
+    </div>
+    <div class="radio">
+        <label>
+            <input type="radio" name="optionsRadios" id="optionsRadios8" value="option2">
+            Lic. Linda Carmina Pineda González
+        </label>
+    </div>
+    <div class="radio">
+        <label>
+            <input type="radio" name="optionsRadios" id="optionsRadios9" value="option1" checked>
+            Ing. Yesua Antonio Espinoza Garcia
+        </label>
+    </div>
+    <div class="radio">
+        <label>
+            <input type="radio" name="optionsRadios" id="optionsRadios10" value="option2">
+            Ing. Ulises Ivan Lujan Salazar
+        </label>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!- --
+    SE TE OLVIDO AGREGAR TODOS ESTOS ARCHIVOS DE JAVASCRIPT Y CSS QCON LOS QUE FUNCIONAL EL CALENDARIO QUE SON OOS QUE CONTIENE
+    LA CARPETA BOWER_COMPONNETS es muuuy importante que estos scripts los cargues antes de invocar tu codigo  donde tienes el script de
+    datatimepicker5
+    -->
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="bower_components/moment/min/moment.min.js"></script>
+    <script type="text/javascript" src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+    <script type="text/javascript" src="bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('#datetimepicker5').datetimepicker({
+                defaultDate: "",
+                disabledDates: [
+                    moment("12/25/2013"),
+                    new Date(2013, 11 - 1, 21),
+                    "11/22/2013 00:53"
+                ]
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        $(function () {
+            $('#datetimepicker2').datetimepicker({
+            });
+        });
+    </script>
+
+
+</div>
+
+<br><br><br>
+
+
 
 <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
 hola
