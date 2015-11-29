@@ -47,122 +47,71 @@ angular.module('inicio',['ngRoute','ngResource','ngFileUpload'])
 
 
 }).controller('profesores',function($rootScope,$scope,Upload, $timeout,$rootScope, $http,$resource,$log){
-    $scope.hola="hola desde los reactivos";
+
+    console.log("Controlador Profesores")
+    $scope.guardarProfesor=function(){
+
+    }
+    $scope.actualizarProfesor=function(){
+
+    }
+    $scope.buscarTodosProfesores=function(){
+
+    }
+    $scope.buscarPorIdProfesor=function(){
+
+    }
+    $scope.borrarProfesor=function(){
+
+    }
 
 
 
+})
+    .controller('incidencias',function($rootScope,$scope,Upload, $timeout,$rootScope, $http,$resource,$log){
 
-    var Profesor=$resource('reactivo/:id',{id:'@id'},{crear:{method:'POST'},
-        actualizar:{method:'PUT'}, borrar:{method:'DELETE'}});
+    console.log("Controlador Incidencias")
+    $scope.guardarIncidencia=function(){
+          $http.post('/incidencias/valorcito').success(function(datos){
+              console.log(datos);
+          });
+    }
+    $scope.actualizarIncindencia=function(){
 
+    }
+    $scope.buscarTodosIncindencias=function(){
 
-    /*
+    }
+    $scope.buscarPorIdIncidencia=function(){
 
-     $rootScope.setSelected = function(prop){
-     $rootScope.selectedprop = prop;
-     console.log(prop.label);
-     };
-     $rootScope.props = [{label: "1.", tema:"Introduccion"},{label: "2.", tema:"bases"},{label: "3.", tema:"conclusiones"}];
+    }
+    $scope.borrarIncidencia=function(){
 
-     $rootScope.agarrar=function(){
-
-     }
-
-
-     //GET Todos
-
-     $scope.reactivo=Reactivo.query(function(){
-     console.log($scope.reactivo.length);
-     })
-
-
-     //Get por id
-     $scope.buscarPorId=function(){
-
-     $scope.usu=Usuario.get({id:1
-
-     }, function(){
-     console.log("Usuario obtenido:"+$scope.usu.nombre);
-     });
-     }
-
-
-     //UPDATE
-     $scope.actualizarUsuario=function(){
-     console.log("antes del evento update");
-     var usuario = new Usuario();
-     usuario.login = $scope.login;
-     usuario.password = $scope.password;
-     usuario.email =$scope.email;
-     usuario.$actualizar(function (data) {
-     console.log(data.nombre);
-     });
-     }
-
-     //DELETE
-     $scope.borrarUsuario=function(){
-     var usuario=new Usuario();
-     usuario.id=5;
-     usuario.$borrar();
-     console.log("si se borro");
-     }
-     */
-    //POST
-    $scope.guardarProfesorReactivo=function() {
+    }
 
 
 
+}) .controller('apartados',function($rootScope,$scope,Upload, $timeout,$rootScope, $http,$resource,$log){
 
+    console.log("Controlador Apartados")
+    $scope.guardarIncidencia=function(){
 
-        console.log("tamaño de los radiesitos:"+ $scope.misradiesitos.length);
+    }
+    $scope.actualizarApartado=function(){
 
-        var profesor = new Profesor({
-            'password': $rootScope.passwordactual,
-            'reactivos':[
-                {
-                    'pregunta':$scope.pregunta,
-                    'urlimagen':"leer-imagen/"+$rootScope.rutaimagen,
-                    'tema':$scope.tema,
-                    'retroalimentacion':$scope.retroalimentacion,
-                    'opciones':[
-                        {
-                            'titulo':$scope.titulo1,
-                            'acierto':valores[0]
-                        },
-                        {
-                            'titulo':$scope.titulo2,
-                            'acierto':valores[1]
-                        },
-                        {
-                            'titulo':$scope.titulo3,
-                            'acierto':valores[2]
-                        },
-                        {
-                            'titulo':$scope.titulo4,
-                            'acierto':valores[3]
-                        }
-                    ]
-                }
-            ]
-        });
-        //  profesor.password = $rootScope.passwordactual;
+    }
+    $scope.buscarTodosApartados=function(){
 
+    }
+    $scope.buscarPorIdApartado=function(){
 
+    }
+    $scope.borrarApartado=function(){
 
+    }
 
-        profesor.$crear(function (data) {
-            console.log(data.password);
-            console.log(data.reactivos[0].pregunta);
-            $rootScope.rutaimagen='';
-        });
-
-
-
-
-
-
-    };// Termina boton guardarUsuario()
 
 
 });
+
 
