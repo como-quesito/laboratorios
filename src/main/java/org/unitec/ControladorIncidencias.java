@@ -15,15 +15,15 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping("/")
 public class ControladorIncidencias {
     @Autowired
-    ServicioApartado apartado;
+    ServicioIncidencia servicio;
 
-    @RequestMapping(value="/incidencias/{valor}", method= RequestMethod.POST,headers={"Accept=text/html"} )
+    @RequestMapping(value="/incidencias/{sala}", method= RequestMethod.POST,headers={"Accept=text/html"} )
     @ResponseBody
-    String guardar(@PathVariable String valor)throws Exception{
-        System.out.println("<<<<< SE activo guardar incidencia con valor:"+valor);
-        Apartado a=new Apartado();
-        a.setSalon("t-201");
-       apartado.agregarApartado(a);
+    String guardar(@PathVariable String sala)throws Exception{
+        System.out.println("<<<<< SE activo guardar incidencia con sala:"+sala);
+        Incidencia a=new Incidencia();
+        a.setSala(sala);
+       servicio.agregarIncidencia(a);
         return "Inciencia guardada con éxito";
 
     }

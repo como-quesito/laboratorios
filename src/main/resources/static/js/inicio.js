@@ -67,36 +67,18 @@ angular.module('inicio',['ngRoute','ngResource','ngFileUpload'])
 
 
 
-})
-    .controller('incidencias',function($rootScope,$scope,Upload, $timeout,$rootScope, $http,$resource,$log){
+}).controller('incidencias',function($rootScope,$scope,Upload, $timeout,$rootScope, $http,$resource,$log){
 
     console.log("Controlador Incidencias")
+
+
     $scope.guardarIncidencia=function(){
-          $http.post('/incidencias/valorcito').success(function(datos){
-              console.log(datos);
-          });
-    }
-    $scope.actualizarIncindencia=function(){
-
-    }
-    $scope.buscarTodosIncindencias=function(){
-
-    }
-    $scope.buscarPorIdIncidencia=function(){
-
-    }
-    $scope.borrarIncidencia=function(){
-
+$http.post('/incidencias/'+$scope.sala).success(function(datos){
+    console.log(datos);
+})
     }
 
 
-
-}) .controller('apartados',function($rootScope,$scope,Upload, $timeout,$rootScope, $http,$resource,$log){
-
-    console.log("Controlador Apartados")
-    $scope.guardarIncidencia=function(){
-
-    }
     $scope.actualizarApartado=function(){
 
     }
