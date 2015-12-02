@@ -10,9 +10,11 @@ public class Incidencia {
     String Id;
     String sala;
 
+
     public String getSala() {
         return sala;
     }
+
 
     public void setSala(String sala) {
         this.sala = sala;
@@ -25,4 +27,8 @@ public class Incidencia {
     public void setId(String id) {
         Id = id;
     }
+
+
+
+
 }

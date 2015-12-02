@@ -19,12 +19,12 @@ public class ControladorIncidencias {
 
     @RequestMapping(value="/incidencias/{sala}", method= RequestMethod.POST,headers={"Accept=text/html"} )
     @ResponseBody
-    String guardar(@PathVariable String sala)throws Exception{
-        System.out.println("<<<<< SE activo guardar incidencia con sala:"+sala);
-        Incidencia a=new Incidencia();
+    String guardar(@PathVariable String sala)throws Exception {
+        System.out.println("<<<<< SE activo guardar incidencia con sala:" + sala);
+        Incidencia a = new Incidencia();
         a.setSala(sala);
-       servicio.agregarIncidencia(a);
-        return "Inciencia guardada con éxito";
-
+        servicio.agregarIncidencia(a);
+        return "Incidencia guardada con éxito";
     }
+
 }
