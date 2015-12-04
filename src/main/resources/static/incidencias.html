@@ -40,12 +40,8 @@
         </div>
         <div class="col-md-4">
             <div class="form-group">
-                <div class='input-group date' id='datetimepicker5'>
-                    <input type='text' class="form-control" />
-                    <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-calendar"></span>
-                    </span>
-                </div>
+                <!--CALENDARIO -->
+                <md-datepicker ng-model="miDate" md-placeholder="Selecciona una fecha"></md-datepicker>
             </div>
         </div>
         <div class="col-md-3">
@@ -206,78 +202,33 @@
     <br>
 
 
-
     <!-- PERSONAS QUE REPORTA-->
+    <!-- Radio buttons materialice  -->
+    <h3 class="md-headline">Personal que reporta:</h3>
+ <p>Valor seleccionado: <span class="radioValue" style="color:#1b6d85">{{ data.group1 }}</span> </p>
+
+    <md-radio-group ng-model="reporta">
+
+      <md-radio-button value=" Ing. Aaron Isaias Omaña Corona" class="md-primary"> Ing. Aaron Isaias Omaña Corona</md-radio-button>
+        <md-radio-button value=" Ing. Alfonso Ivan Ramirez Jimenez" class="md-primary"> Ing. Alfonso Ivan Ramirez Jimenez</md-radio-button>
+        <md-radio-button value=" Lic. Cristian Parrao Rosales" class="md-primary"> Lic. Cristian Parrao Rosales</md-radio-button>
+        <md-radio-button value="Ing. Daniel Salazar Aragón" class="md-primary"> Ing. Daniel Salazar Aragón</md-radio-button>
+        <md-radio-button value="Ing. Eduardo Valencia Palomino" class="md-primary">Ing. Eduardo Valencia Palomino</md-radio-button>
+        <md-radio-button value=" Mtra. e Ing. Elizabeth Marin Paz" class="md-primary"> Mtra. e Ing. Elizabeth Marin Paz</md-radio-button>
+        <md-radio-button value="  Lic. Griselda Pineda González" class="md-primary">  Lic. Griselda Pineda González</md-radio-button>
+        <md-radio-button value=" Lic. Linda Carmina Pineda González" class="md-primary"> Lic. Linda Carmina Pineda González</md-radio-button>
+        <md-radio-button value=" Ing. Yesua Antonio Espinoza Garcia" class="md-primary"> Ing. Yesua Antonio Espinoza Garcia</md-radio-button>
+        <md-radio-button value=" Ing. Ulises Ivan Lujan Salazar" class="md-primary"> Ing. Ulises Ivan Lujan Salazar</md-radio-button>
+    </md-radio-group>
+
+    <hr>
 
 
-    <h2>PERSONA QUE REPORTA INCIDENCIA*</h2>
-    <div class="radio">
-        <label>
-            <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-            Ing. Aaron Isaias Omaña Corona
-        </label>
-    </div>
-    <div class="radio">
-        <label>
-            <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-            Ing. Alfonso Ivan Ramirez Jimenez
-        </label>
-    </div>
-    <div class="radio">
-        <label>
-            <input type="radio" name="optionsRadios" id="optionsRadios3" value="option1" checked>
-            Lic. Cristian Parrao Rosales
-        </label>
-    </div>
-    <div class="radio">
-        <label>
-            <input type="radio" name="optionsRadios" id="optionsRadios4" value="option2">
-            Ing. Daniel Salazar Aragón
-        </label>
-    </div>
-    <div class="radio">
-        <label>
-            <input type="radio" name="optionsRadios" id="optionsRadios5" value="option1" checked>
-            Ing. Eduardo Valencia Palomino
-        </label>
-    </div>
-    <div class="radio">
-        <label>
-            <input type="radio" name="optionsRadios" id="optionsRadios6" value="option2">
-            Mtra. e Ing. Elizabeth Marin Paz
-        </label>
-    </div>
-    <div class="radio">
-        <label>
-            <input type="radio" name="optionsRadios" id="optionsRadios7" value="option1" checked>
-            Lic. Griselda Pineda González
-        </label>
-    </div>
-    <div class="radio">
-        <label>
-            <input type="radio" name="optionsRadios" id="optionsRadios8" value="option2">
-            Lic. Linda Carmina Pineda González
-        </label>
-    </div>
-    <div class="radio">
-        <label>
-            <input type="radio" name="optionsRadios" id="optionsRadios9" value="option1" checked>
-            Ing. Yesua Antonio Espinoza Garcia
-        </label>
-    </div>
-    <div class="radio">
-        <label>
-            <input type="radio" name="optionsRadios" id="optionsRadios10" value="option2">
-            Ing. Ulises Ivan Lujan Salazar
-        </label>
-    </div>
-
-
-
-
-
-
-
+    <md-radio-group ng-model="data.group3">
+      <md-radio-button ng-repeat="it in avatarData" ng-value="it.value" aria-label="{{it.title}}">
+          <md-icon md-svg-icon="{{it.id}}"></md-icon>
+      </md-radio-button>
+    </md-radio-group>
 
 
 
@@ -320,8 +271,14 @@
 
 
 <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
-hola
-<button ng-click="guardarIncidencia()">Guardar incidencia</button>
+
+
+    <div class="dialog-demo-content" layout="column" layout-align="center center" style="width:100%">
+        <md-button class="md-primary md-raised edgePadding" ng-click="guardarIncidencia()">
+            Guardar Incidencia
+        </md-button>
+
+    </div>
 </div>
 </body>
 </html>

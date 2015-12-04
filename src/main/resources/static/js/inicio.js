@@ -1,7 +1,7 @@
 /**
  * Created by campitos on 6/11/15.
  */
-angular.module('inicio',['ngRoute','ngResource','ngFileUpload'])
+angular.module('inicio',['ngRoute','ngResource','ngFileUpload','ngMaterial', 'ngMdIcons'])
     .config(function($routeProvider,$httpProvider){
         $routeProvider.when('/',{
             templateUrl:'home.html',
@@ -41,12 +41,78 @@ angular.module('inicio',['ngRoute','ngResource','ngFileUpload'])
         $scope.hola = "hola desde los reactivos";
         console.log('Controlador home');
     })
-       .controller('apartados',function($rootScope,$scope,Upload, $timeout,$rootScope, $http,$resource,$log) {
+       .controller('apartados',function($rootScope,$scope,Upload, $timeout,$rootScope, $http,$resource,$log,$mdDialog) {
     $scope.hola = "hola desde los reactivos";
     console.log('Controlador apartados');
+           $scope.title1 = 'Button';
+           $scope.title4 = 'Warn';
+           $scope.isDisabled = true;
+           $scope.miDate;
+   $scope.apartar=function(){
+       console.log('Haz hecho clicki en apartados');
+       $http.post("apartado/"+$scope.miDate).success(function(datos){
+           console.log(datos);
+
+           //Abrimos la ventanita de dialogos
+           $mdDialog.show(
+               $mdDialog.alert()
+                   .clickOutsideToClose(true)
+                   .title('Apartado guardado')
+                   .textContent('MALO')
+                   .ariaLabel('Estatus:')
+                   .ok('Bien!')
+                   // You can specify either sting with query selector
+                   .openFrom('#left')
+                   // or an element
+                   .closeTo(angular.element(document.querySelector('#right')))
+           );
+
+       });
 
 
-}).controller('profesores',function($rootScope,$scope,Upload, $timeout,$rootScope, $http,$resource,$log){
+
+   }//TERMINA EL METODO PARA GUARDAR UNA INCIDENCIA
+
+
+           //dialogo
+           $scope.openFromLeft = function() {
+               $mdDialog.show(
+                   $mdDialog.alert()
+                       .clickOutsideToClose(true)
+                       .title('Opening from the left')
+                       .textContent('Closing to the right!')
+                       .ariaLabel('Left to right demo')
+                       .ok('Nice!')
+                       // You can specify either sting with query selector
+                       .openFrom('#left')
+                       // or an element
+                       .closeTo(angular.element(document.querySelector('#right')))
+               );
+           };
+
+           $scope.openOffscreen = function() {
+               $mdDialog.show(
+                   $mdDialog.alert()
+                       .clickOutsideToClose(true)
+                       .title('Opening from offscreen')
+                       .textContent('Closing to offscreen')
+                       .ariaLabel('Offscreen Demo')
+                       .ok('Amazing!')
+                       // Or you can specify the rect to do the transition from
+                       .openFrom({
+                           top: -50,
+                           width: 30,
+                           height: 80
+                       })
+                       .closeTo({
+                           left: 1500
+                       })
+               );
+           };
+           $scope.googleUrl = 'http://google.com';
+
+
+       }).controller('profesores',function($rootScope,$scope,Upload, $timeout,$rootScope, $http,$resource,$log){
 
     console.log("Controlador Profesores")
     $scope.guardarProfesor=function(){
@@ -67,16 +133,44 @@ angular.module('inicio',['ngRoute','ngResource','ngFileUpload'])
 
 
 
-}).controller('incidencias',function($rootScope,$scope,Upload, $timeout,$rootScope, $http,$resource,$log){
+}).controller('incidencias',function($rootScope,$scope,Upload, $timeout,$rootScope, $http,$resource,$log, $mdDialog){
 
-    console.log("Controlador Incidencias")
+    // REST PAREA INCIDENCIAS LA DEFINIMOS GLOBALMENTE DENTRO DE CONTROLADOR
+    var Incidencia=$resource('incidencia/:id',{id:'@id'},{crear:{method:'POST'},
+        actualizar:{method:'PUT'}, borrar:{method:'DELETE'}});
+
+        console.log("Controlador Incidencias")
 
 
     $scope.guardarIncidencia=function(){
-$http.post('/incidencias/'+$scope.sala).success(function(datos){
-    console.log(datos);
-})
-    }
+
+        //Creamos una Incidencia como clase con ayuda de los ng-model
+        var incidencia =new Incidencia({
+           "sala":$scope.sala,
+           "reporta":$scope.reporta
+        });
+        //LA SOMETEMOS AL METODO POST
+        incidencia.$crear(function (mensaje) {
+            console.log(mensaje.titulo);
+
+
+            //Abrimos la ventanita de dialogos
+            $mdDialog.show(
+                $mdDialog.alert()
+                    .clickOutsideToClose(true)
+                    .title('Incidencia guardada')
+                    .textContent(mensaje.titulo)
+                    .ariaLabel('Estatus:'+mensaje.estatus)
+                    .ok('Bien!')
+                    // hacia donde abre
+                    .openFrom('#left')
+                    // elemento
+                    .closeTo(angular.element(document.querySelector('#right')))
+            );
+
+        });
+
+    }//TERMINA EL METODO GUARDAR INCIDENCIA
 
 
     $scope.actualizarApartado=function(){
@@ -94,6 +188,14 @@ $http.post('/incidencias/'+$scope.sala).success(function(datos){
 
 
 
+}).config(function($mdIconProvider) {
+    $mdIconProvider
+        .iconSet('social', 'img/icons/sets/social-icons.svg', 24)
+        .defaultIconSet('img/icons/sets/core-icons.svg', 24);
+}).config(function($mdDateLocaleProvider) {
+    $mdDateLocaleProvider.formatDate = function(date) {
+        return moment(date).format('YYYY-MM-DD');
+    };
 });
 
 

@@ -1,11 +1,9 @@
 package org.unitec;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * Created by campitos on 29/11/15.
@@ -17,14 +15,23 @@ public class ControladorIncidencias {
     @Autowired
     ServicioIncidencia servicio;
 
-    @RequestMapping(value="/incidencias/{sala}", method= RequestMethod.POST,headers={"Accept=text/html"} )
+    @RequestMapping(value="/incidencia", method= RequestMethod.POST,headers={"Accept=application/json"} )
     @ResponseBody
-    String guardar(@PathVariable String sala)throws Exception {
-        System.out.println("<<<<< SE activo guardar incidencia con sala:" + sala);
-        Incidencia a = new Incidencia();
-        a.setSala(sala);
-        servicio.agregarIncidencia(a);
-        return "Incidencia guardada con éxito";
+    String guardar(@RequestBody String json)throws Exception {
+
+
+        //Creamos un objeto
+          ObjectMapper maper=new ObjectMapper();
+      Incidencia incidencia=maper.readValue(json, Incidencia.class);
+        System.out.println("<<<<< SE activo guardar incidencia con sala:"+incidencia.getSala()+" y con reporte de "+incidencia.getReporta());
+      //  servicio.agregarIncidencia(a);
+
+        //Creamos un mensajito para retransmitirlo al cliente
+        Mensaje mensa=new Mensaje();
+        mensa.setTitulo("Se guardó esta incidencia");
+        mensa.setStatus(true);
+
+        return maper.writeValueAsString(mensa);
     }
 
 }

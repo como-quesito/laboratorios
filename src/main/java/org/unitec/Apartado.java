@@ -1,5 +1,6 @@
 package org.unitec;
 
+import org.joda.time.DateTime;
 import org.springframework.data.annotation.Id;
 
 /**
@@ -9,6 +10,18 @@ public class Apartado {
     @Id
     String id;
     String salon;
+    DateTime fecha;
+
+    public Apartado() {
+    }
+
+    public DateTime getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(DateTime fecha) {
+        this.fecha = fecha;
+    }
 
     public String getSalon() {
         return salon;

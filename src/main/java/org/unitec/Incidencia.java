@@ -9,7 +9,15 @@ public class Incidencia {
     @Id
     String Id;
     String sala;
+    String reporta;
 
+    public String getReporta() {
+        return reporta;
+    }
+
+    public void setReporta(String reporta) {
+        this.reporta = reporta;
+    }
 
     public String getSala() {
         return sala;
