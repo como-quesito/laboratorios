@@ -17,6 +17,33 @@ public class Incidencia {
     Date fecha;
     String horario;
     String nupc;
+    String coal;
+    String copr;
+    String obge;
+
+    public String getObge() {
+        return obge;
+    }
+
+    public void setObge(String obge) {
+        this.obge = obge;
+    }
+
+    public String getCopr() {
+        return copr;
+    }
+
+    public void setCopr(String copr) {
+        this.copr = copr;
+    }
+
+    public String getCoal() {
+        return coal;
+    }
+
+    public void setCoal(String coal) {
+        this.coal = coal;
+    }
 
     public String getNupc() {
         return nupc;
@@ -34,6 +61,7 @@ public class Incidencia {
         this.semana = semana;
     }
 
+
     @Override
     public String toString() {
         return "Incidencia{" +
@@ -44,6 +72,9 @@ public class Incidencia {
                 ", fecha=" + fecha +
                 ", horario='" + horario + '\'' +
                 ", nupc='" + nupc + '\'' +
+                ", coal='" + coal + '\'' +
+                ", copr='" + copr + '\'' +
+                ", obge='" + obge + '\'' +
                 '}';
     }
 

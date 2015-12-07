@@ -49,6 +49,10 @@ angular.module('inicio',['ngRoute','ngResource','ngFileUpload','ngMaterial', 'ng
            $scope.isDisabled = true;
            $scope.miDate;
            $scope.horario;
+           $scope.coal;
+           $scope.copr;
+           $scope.obge;
+
    $scope.apartar=function(){
        console.log('Haz hecho clicki en apartados');
        $http.post("apartado/"+$scope.miDate).success(function(datos){
@@ -233,7 +237,12 @@ angular.module('inicio',['ngRoute','ngResource','ngFileUpload','ngMaterial', 'ng
             "horario":$scope.horario,
             "fecha":$scope.miFechaIncidencia,
             "semana":$scope.semana,
-            "nupc":$scope.Nupc
+            "nupc":$scope.Nupc,
+            "coal":$scope.CoAl,
+            "copr":$scope.CoPr,
+            "obge":$scope.ObGe
+
+
         });
         //LA SOMETEMOS AL METODO POST
         incidencia.$crear(function (mensaje) {
