@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
 </head>
 <body>
 
@@ -87,17 +87,31 @@
                 <option>T-408</option>
             </select>
         </div>
-    </div>
+    </div><br>
     <div class="row">
         <div class="cold-md-12">
-            <input type="text" class="form-control" placeholder="PROFESOR"
-                   md-autocompleteng-disabled="ctrl.isDisabled"md-no-cache="ctrl.noCache"
-                   md-selected-item="ctrl.selectedItem"md-search-text-change="
-                   ctrl.searchTextChange(ctrl.searchText)"md-search-text="
-                   ctrl.searchText"md-selected-item-change="ctrl.selectedItemChange(item)"
-                   md-items="item in ctrl.querySearch(ctrl.searchText)"md-item-text="item.display"
-                   md-min-length="0"
-                    >
+            <md-content class="md-padding">
+                <form ng-submit="$event.preventDefault()">
+            <md-autocomplete
+                    ng-disabled="isDisabled"
+                    md-no-cache="noCache"
+                    md-selected-item="selectedItem"
+                    md-search-text-change="searchTextChange(searchText)"
+                    md-search-text="searchText"
+                    md-selected-item-change="selectedItemChange(item)"
+                    md-items="item in querySearch(searchText)"
+                    md-item-text="item.display"
+                    md-min-length="0"
+                    placeholder="¿Cual es el Apellido del Profesor?">
+                <md-item-template>
+                    <span md-highlight-text="searchText" md-highlight-flags="^i">{{item.display}}</span>
+                </md-item-template>
+                <md-not-found>
+                    Ninguna ocurrencia se encontro "{{searchText}}" para este dato.
+                </md-not-found>
+            </md-autocomplete>
+                </form>
+            </md-content>
         </div>
     </div>
 </div>

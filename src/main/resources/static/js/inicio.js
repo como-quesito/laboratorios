@@ -39,15 +39,111 @@ angular.module('inicio',['ngRoute','ngResource','ngFileUpload','ngMaterial', 'ng
         $rootScope.loading=false;
 
     }).controller('incidencias',function($rootScope,$scope,Upload, $timeout,$rootScope, $http,$resource,$log,$timeout, $q) {
+
+
+
+        var self = this;
+        $scope.simulateQuery = false;
+        $scope.isDisabled    = false;
+        // list of `state` value/display objects
+        $scope.states        = loadAll();
+        $scope.querySearch   = querySearch;
+        $scope.selectedItemChange = selectedItemChange;
+        $scope.searchTextChange   = searchTextChange;
+        $scope.searchText;
+        $scope.newState=  function newState(state) {
+            alert("Lo siento necesitas primero construir una constitucion para " + state + " primero!");
+            console.log('Te has metido e la constitucion mexicana jejejeje');
+        }
+        // ******************************
+        // Internal methods
+        // ******************************
+        /**
+         * Search for states... use $timeout to simulate
+         * remote dataservice call.
+         */
+        function querySearch (query) {
+            var results = query ? $scope.states.filter( createFilterFor(query) ) : $scope.states,
+                deferred;
+            if ($scope.simulateQuery) {
+                deferred = $q.defer();
+                $timeout(function () { deferred.resolve( results ); }, Math.random() * 1000, false);
+                return deferred.promise;
+            } else {
+                return results;
+            }
+        }
+        function searchTextChange(text) {
+            $log.info('Text changed to ' + text);
+        }
+        function selectedItemChange(item) {
+            $log.info('Item changed to ' + JSON.stringify(item));
+        }
+        /**
+         * Build `states` list of key/value pairs
+         */
+        function loadAll() {
+            var allStates = 'Alabama, Alaska, Arizona, Arkansas, California, Colorado, Connecticut, Delaware,\
+              Florida, Georgia, Hawaii, Idaho, Illinois, Indiana, Iowa, Kansas, Kentucky, Louisiana,\
+              Maine, Maryland, Massachusetts, Michigan, Minnesota, Mississippi, Missouri, Montana,\
+              Nebraska, Nevada, New Hampshire, New Jersey, New Mexico, New York, North Carolina,\
+              North Dakota, Ohio, Oklahoma, Oregon, Pennsylvania, Rhode Island, South Carolina,\
+              South Dakota, Tennessee, Texas, Utah, Vermont, Virginia, Washington, West Virginia,\
+              Wisconsin, Wyoming';
+            return allStates.split(/, +/g).map( function (state) {
+                return {
+                    value: state.toLowerCase(),
+                    display: state
+                };
+            });
+        }
+        /**
+         * Create filter function for a query string
+         */
+        function createFilterFor(query) {
+            var lowercaseQuery = angular.lowercase(query);
+            return function filterFn(state) {
+                return (state.value.indexOf(lowercaseQuery) === 0);
+            };
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         $scope.hola = "hola desde los reactivos";
         console.log('Controlador incidencias');
     }).controller('home',function($rootScope,$scope,Upload, $timeout,$rootScope, $http,$resource,$log) {
         $scope.hola = "hola desde los reactivos";
         console.log('Controlador home');
     })
-       .controller('apartados',function($rootScope,$scope,Upload, $timeout,$rootScope, $http,$resource,$log,$mdDialog) {
-    $scope.hola = "hola desde los reactivos";
-    console.log('Controlador apartados');
+       .controller('apartados',function($rootScope,$scope,Upload, $timeout, $http,$resource,$log,$mdDialog,$q) {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        $scope.hola = "hola desde los reactivos";
+            console.log('Controlador apartados');
            $scope.title1 = 'Button';
            $scope.title4 = 'Warn';
            $scope.isDisabled = true;
