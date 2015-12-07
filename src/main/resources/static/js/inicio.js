@@ -328,6 +328,77 @@ angular.module('inicio',['ngRoute','ngResource','ngFileUpload','ngMaterial', 'ng
         console.log("Controlador Incidencias")
 
 
+
+    /*
+    CODIGO DE AUTOCOMPLETADO
+     */
+    /*
+     CODIGO DE AUTOCOMPLETADO
+     */
+
+    var self = this;
+    $scope.simulateQuery = false;
+    $scope.isDisabled    = false;
+    // list of `state` value/display objects
+    $scope.states        = loadAll();
+    $scope.querySearch   = querySearch;
+    $scope.selectedItemChange = selectedItemChange;
+    $scope.searchTextChange   = searchTextChange;
+    $scope.searchText;
+    $scope.newState=  function newState(state) {
+        alert("Lo siento necesitas primero construir una constitucion para " + state + " primero!");
+        console.log('Te has metido e la constitucion mexicana jejejeje');
+    }
+    // ******************************
+    // Internal methods
+    // ******************************
+    /**
+     * Search for states... use $timeout to simulate
+     * remote dataservice call.
+     */
+    function querySearch (query) {
+        var results = query ? $scope.states.filter( createFilterFor(query) ) : $scope.states,
+            deferred;
+        if ($scope.simulateQuery) {
+            deferred = $q.defer();
+            $timeout(function () { deferred.resolve( results ); }, Math.random() * 1000, false);
+            return deferred.promise;
+        } else {
+            return results;
+        }
+    }
+    function searchTextChange(text) {
+        $log.info('Text changed to ' + text);
+    }
+    function selectedItemChange(item) {
+        $log.info('Item changed to ' + JSON.stringify(item));
+    }
+    /**
+     * Build `states` list of key/value pairs
+     */
+    function loadAll() {
+        var allStates = 'Juan Carlos Campos, Carlos Jurado, Rene Tellez, Ivan Hernandes, Paola Dorantes';
+        return allStates.split(/, +/g).map( function (state) {
+            return {
+                value: state.toLowerCase(),
+                display: state
+            };
+        });
+    }
+    /**
+     * Create filter function for a query string
+     */
+    function createFilterFor(query) {
+        var lowercaseQuery = angular.lowercase(query);
+        return function filterFn(state) {
+            return (state.value.indexOf(lowercaseQuery) === 0);
+        };
+    }
+
+    //TERMINA CODIGO DE AUTOCOMPLETADO
+
+
+
     $scope.guardarIncidencia=function(){
 
         //Creamos una Incidencia como clase con ayuda de los ng-model
@@ -431,13 +502,9 @@ CODIGO DE AUTOCOMPLETADO
              * Build `states` list of key/value pairs
              */
             function loadAll() {
-                var allStates = 'Alabama, Alaska, Arizona, Arkansas, California, Colorado, Connecticut, Delaware,\
-              Florida, Georgia, Hawaii, Idaho, Illinois, Indiana, Iowa, Kansas, Kentucky, Louisiana,\
-              Maine, Maryland, Massachusetts, Michigan, Minnesota, Mississippi, Missouri, Montana,\
-              Nebraska, Nevada, New Hampshire, New Jersey, New Mexico, New York, North Carolina,\
-              North Dakota, Ohio, Oklahoma, Oregon, Pennsylvania, Rhode Island, South Carolina,\
-              South Dakota, Tennessee, Texas, Utah, Vermont, Virginia, Washington, West Virginia,\
-              Wisconsin, Wyoming';
+                var allStates = 'Aguascalientes, Baja California, Baja California Sur, Campeche, Yucatan, Estado de México,\
+              Durango, Nuevo Leon, Queretaro, San Luis Potpsi, Chiapas, Guerrero, Hidalgo, Puebla, Sonora, Chihuahua,\
+              Morelos, Veracruz';
                 return allStates.split(/, +/g).map( function (state) {
                     return {
                         value: state.toLowerCase(),
@@ -454,6 +521,8 @@ CODIGO DE AUTOCOMPLETADO
                     return (state.value.indexOf(lowercaseQuery) === 0);
                 };
             }
+
+    //TERMINA CODIGO DE AUTOCOMPLETADO
 
 
 
