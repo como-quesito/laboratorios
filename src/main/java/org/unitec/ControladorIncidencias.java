@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
+
 /**
  * Created by campitos on 29/11/15.
  */
@@ -23,7 +25,7 @@ public class ControladorIncidencias {
         //Creamos un objeto
           ObjectMapper maper=new ObjectMapper();
       Incidencia incidencia=maper.readValue(json, Incidencia.class);
-        System.out.println("<<<<< SE activo guardar incidencia con sala:"+incidencia.getSala()+" y con reporte de "+incidencia.getReporta());
+        System.out.println("<<<<< SE activo guardar incidencia con"+incidencia);
       //  servicio.agregarIncidencia(a);
 
         //Creamos un mensajito para retransmitirlo al cliente

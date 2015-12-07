@@ -3,6 +3,8 @@ package org.unitec;
 import org.joda.time.DateTime;
 import org.springframework.data.annotation.Id;
 
+import java.util.Date;
+
 /**
  * Created by campitos on 6/11/15.
  */
@@ -10,17 +12,23 @@ public class Apartado {
     @Id
     String id;
     String salon;
-    DateTime fecha;
+    Date fecha;
 
-    public Apartado() {
+    @Override
+    public String toString() {
+        return "Apartado{" +
+                "id='" + id + '\'' +
+                ", salon='" + salon + '\'' +
+                ", fecha=" + fecha +
+                '}';
     }
 
-    public DateTime getFecha() {
-        return fecha;
+    public String getId() {
+        return id;
     }
 
-    public void setFecha(DateTime fecha) {
-        this.fecha = fecha;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getSalon() {
@@ -31,11 +39,11 @@ public class Apartado {
         this.salon = salon;
     }
 
-    public String getId() {
-        return id;
+    public Date getFecha() {
+        return fecha;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
     }
 }

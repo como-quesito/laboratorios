@@ -2,13 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link href="node_modules/bootstrap/dist/css/bootstrap.css">
-    <title></title>
-    <script src="node_modules/jquery/dist/jquery.js"></script>
-    <script type="text/javascript" src="bower_components/moment/min/moment.min.js"></script>
-    <script type="text/javascript" src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
-    <script type="text/javascript" src="bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
-    <link rel="stylesheet" href="bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
+
 </head>
 <body>
 
@@ -23,7 +17,7 @@
 <div class="container-fluid margen-izquierdo">                               <!-- se ajusta dependiendo el ancho de PagWeb-->
     <div class="row">                                       <!--  Introduce las filas que desee uno -->
         <div class="col-md-1">                               <!-- Asigno el ancho de Columna-->
-            <select class="form-control input-sm"  style="color:#080808;font-weight:bolder;">
+            <select class="form-control input-sm"  style="color:#080808;font-weight:bolder;" ng-model="semana">
                 <option>1</option>
                 <option>2</option>
                 <option>3</option>
@@ -41,11 +35,11 @@
         <div class="col-md-4">
             <div class="form-group">
                 <!--CALENDARIO -->
-                <md-datepicker ng-model="miDate" md-placeholder="Selecciona una fecha"></md-datepicker>
+                <md-datepicker ng-model="miFechaIncidencia" md-placeholder="Selecciona una fecha"></md-datepicker>
             </div>
         </div>
         <div class="col-md-3">
-            <select class="form-control input-sm"  style="color:#000000;font-weight:bolder;">
+            <select class="form-control input-sm"  style="color:#000000;font-weight:bolder;" ng-model="horario">
                 <option>07-08:30</option>
                 <option>07-09</option>
                 <option>08:30:10</option>
@@ -183,16 +177,16 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-6">
-            <textarea class="form-control" rows="3" " placeholder="Numeros de PC´s" style="color: #080808;font-weight: bolder"></textarea>
+            <textarea class="form-control"  ng-model="Nupc"rows="3"  placeholder="Numeros de PC´s" style="color: #080808;font-weight: bolder"></textarea>
             <br>
         </div>
         <div class="col-md-6">
-            <textarea class="form-control" rows="3" " placeholder="Comentario de Alumnos" style="color: #080808;font-weight: bolder"></textarea>
+            <textarea class="form-control" rows="3"  placeholder="Comentario de Alumnos" style="color: #080808;font-weight: bolder"></textarea>
             <br>
         </div>
         <div class="row container-fluid">
             <div class="col-md-6">
-                <textarea class="form-control" rows="3" " placeholder="Comentario de Profesores" style="color: #080808;font-weight: bolder"></textarea>
+                <textarea class="form-control" rows="3"  placeholder="Comentario de Profesores" style="color: #080808;font-weight: bolder"></textarea>
             </div>
             <div class="col-md-6">
                 <textarea class="form-control" rows="3" placeholder="Observaciones Generales" style="color: #080808;font-weight: bolder"></textarea>
@@ -205,7 +199,7 @@
     <!-- PERSONAS QUE REPORTA-->
     <!-- Radio buttons materialice  -->
     <h3 class="md-headline">Personal que reporta:</h3>
- <p>Valor seleccionado: <span class="radioValue" style="color:#1b6d85">{{ data.group1 }}</span> </p>
+ <p>Valor seleccionado: <span class="radioValue" style="color:#1b6d85">{{ reporta }}</span> </p>
 
     <md-radio-group ng-model="reporta">
 
