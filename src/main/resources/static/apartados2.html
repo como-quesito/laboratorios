@@ -28,19 +28,30 @@
                     <span md-highlight-text="searchText" md-highlight-flags="^i">{{item.display}}</span>
                 </md-item-template>
                 <md-not-found>
-                    Ninguna ocurrencia se encontro "{{searchText}}" para este dato :'(
+                    Ninguna ocurrencia se encontro con  "{{searchText}}" para esta búsqueda: '(
 
                 </md-not-found>
 
             </md-autocomplete>
             <br/>
 
-            <md-checkbox ng-model="simulateQuery">Simularo los resukatdos de busqueda?</md-checkbox>
-            <md-checkbox ng-model="noCache">Deshabiliar el catching para busquedas?</md-checkbox>
+            <md-checkbox ng-model="simulateQuery">Deseas  simular los resultados de busqueda?</md-checkbox>
+            <md-checkbox ng-model="noCache">Deshabiliar el cachado para busquedas?</md-checkbox>
             <md-checkbox ng-model="isDisabled">Deshabilitar entradas?</md-checkbox>
             <p>Por defecto, <code>md-autocomplete</code> cacharar los resukltados antes de la bsuqueda.  Se mostraran los resutados despues.</p>
         </form>
     </md-content>
+    <md-input-container class="md-block">
+        <label>Nombre del Profesor</label>
+        <input required name="profesorNombre">
+
+    </md-input-container>
+    <md-input-container style="margin-right: 10px;">
+        <label>Tamaño</label>
+        <md-select ng-model="size">
+            <md-option ng-repeat="tamanio in tamanios" value="{{tamanio}}">{{tamanio.tamano}}</md-option>
+        </md-select>
+    </md-input-container>
 </div>
 
 </body>
