@@ -459,6 +459,11 @@ angular.module('inicio',['ngRoute','ngResource','ngFileUpload','ngMaterial', 'ng
 
 }).controller('apartados2', function($scope, $http, $resource, $mdDialog,$timeout, $q, $log){
     console.log('APARTADOS2');
+    /*
+     un jsoncito para tamaños de bebidas
+     */
+   $scope.tamanios=[{tamano:'chico'},{tamano:'mediano'},{ tamano:'grande'}];
+
 
 /*
 CODIGO DE AUTOCOMPLETADO
