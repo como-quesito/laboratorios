@@ -20,6 +20,15 @@ public class Incidencia {
     String coal;
     String copr;
     String obge;
+    String profe;
+
+    public String getProfe() {
+        return profe;
+    }
+
+    public void setProfe(String profe) {
+        this.profe = profe;
+    }
 
     public String getObge() {
         return obge;
@@ -75,6 +84,7 @@ public class Incidencia {
                 ", coal='" + coal + '\'' +
                 ", copr='" + copr + '\'' +
                 ", obge='" + obge + '\'' +
+                ", profe='" + profe + '\'' +
                 '}';
     }
 

@@ -152,6 +152,7 @@ angular.module('inicio',['ngRoute','ngResource','ngFileUpload','ngMaterial', 'ng
            $scope.coal;
            $scope.copr;
            $scope.obge;
+           $scope.profe;
 
    $scope.apartar=function(){
        console.log('Haz hecho clicki en apartados');
@@ -319,7 +320,7 @@ angular.module('inicio',['ngRoute','ngResource','ngFileUpload','ngMaterial', 'ng
 
 
 
-}).controller('incidencias',function($rootScope,$scope,Upload, $timeout,$rootScope, $http,$resource,$log, $mdDialog){
+}).controller('incidencias',function($rootScope,$scope,Upload, $timeout,$rootScope, $http,$resource,$log, $mdDialog, $q){
 
     // REST PAREA INCIDENCIAS LA DEFINIMOS GLOBALMENTE DENTRO DE CONTROLADOR
     var Incidencia=$resource('incidencia/:id',{id:'@id'},{crear:{method:'POST'},
@@ -340,11 +341,12 @@ angular.module('inicio',['ngRoute','ngResource','ngFileUpload','ngMaterial', 'ng
     $scope.simulateQuery = false;
     $scope.isDisabled    = false;
     // list of `state` value/display objects
+    $scope.selectedItem  = null;
     $scope.states        = loadAll();
     $scope.querySearch   = querySearch;
     $scope.selectedItemChange = selectedItemChange;
     $scope.searchTextChange   = searchTextChange;
-    $scope.searchText;
+    $scope.searchText         =null;
     $scope.newState=  function newState(state) {
         alert("Lo siento necesitas primero construir una constitucion para " + state + " primero!");
         console.log('Te has metido e la constitucion mexicana jejejeje');
@@ -377,7 +379,7 @@ angular.module('inicio',['ngRoute','ngResource','ngFileUpload','ngMaterial', 'ng
      * Build `states` list of key/value pairs
      */
     function loadAll() {
-        var allStates = 'Juan Carlos Campos, Carlos Jurado, Rene Tellez, Ivan Hernandes, Paola Dorantes';
+        var allStates = 'Juan Carlos Campos Martinez, Ulises Ivan Lujan Salazar, Carlos Jurado Aguirre, Ivan Hernandes Hernandez, Paola Elizabeth Ramirez Santiago';
         return allStates.split(/, +/g).map( function (state) {
             return {
                 value: state.toLowerCase(),
@@ -411,7 +413,8 @@ angular.module('inicio',['ngRoute','ngResource','ngFileUpload','ngMaterial', 'ng
             "nupc":$scope.Nupc,
             "coal":$scope.CoAl,
             "copr":$scope.CoPr,
-            "obge":$scope.ObGe
+            "obge":$scope.ObGe,
+            "profe":$scope.Profe
 
 
         });

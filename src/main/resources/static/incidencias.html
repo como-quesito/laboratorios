@@ -30,6 +30,8 @@
                 <option>10</option>
                 <option>11</option>
                 <option>12</option>
+                <option>13</option>
+                <option>14</option>
             </select>
         </div>
         <div class="col-md-4">
@@ -39,7 +41,7 @@
             </div>
         </div>
         <div class="col-md-3">
-            <select class="form-control input-sm"  style="color:#000000;font-weight:bolder;" ng-model="horario">
+            <select class="form-control input-sm"  style="color:#000000;font-weight:bolder;" ng-model="horario" placeholder="Horario de Clase">
                 <option>07-08:30</option>
                 <option>07-09</option>
                 <option>08:30:10</option>
@@ -56,7 +58,7 @@
             </select>
         </div>
         <div class="col-md-4">
-            <select  ng-model="sala" class="form-control input-sm"  style="color:#080808;font-weight:bolder;">
+            <select  ng-model="sala" class="form-control input-sm"  style="color:#080808;font-weight:bolder;" placeholder="Salones T-">
                 <option>T-101</option>
                 <option>T-102</option>
                 <option>T-10A</option>
@@ -88,12 +90,12 @@
             </select>
         </div>
     </div><br>
-    <div class="row">
+    <div class="row" ng-model="Profe">
         <div class="cold-md-12">
             <md-content class="md-padding">
                 <form ng-submit="$event.preventDefault()">
-                    <p>Usar <code>md-autocomplete</code> para hacer busquedas ya sea locales o remotas :D.</p>
                     <md-autocomplete
+
                             ng-disabled="isDisabled"
                             md-no-cache="noCache"
                             md-selected-item="selectedItem"
@@ -103,7 +105,7 @@
                             md-items="item in querySearch(searchText)"
                             md-item-text="item.display"
                             md-min-length="0"
-                            placeholder="Cual es el nombre de profe?">
+                            placeholder="Cual es el nombre del Profesor?">
                         <md-item-template>
                             <span md-highlight-text="searchText" md-highlight-flags="^i">{{item.display}}</span>
                         </md-item-template>
@@ -115,10 +117,7 @@
                     </md-autocomplete>
                     <br/>
 
-                    <md-checkbox ng-model="simulateQuery">Simularo los resukatdos de busqueda?</md-checkbox>
-                    <md-checkbox ng-model="noCache">Deshabiliar el catching para busquedas?</md-checkbox>
-                    <md-checkbox ng-model="isDisabled">Deshabilitar entradas?</md-checkbox>
-                    <p>Por defecto, <code>md-autocomplete</code> cacharar los resukltados antes de la bsuqueda.  Se mostraran los resutados despues.</p>
+
                 </form>
             </md-content>
         </div>
@@ -207,7 +206,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-6">
-            <textarea class="form-control"  ng-model="Nupc"rows="3"  placeholder="Numeros de PC´s" style="color: #080808;font-weight: bolder"></textarea>
+            <textarea class="form-control"  ng-model="Nupc" rows="3"  placeholder="Numeros de PC´s" style="color: #080808;font-weight: bolder"></textarea>
             <br>
         </div>
         <div class="col-md-6">
