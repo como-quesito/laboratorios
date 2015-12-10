@@ -17,22 +17,12 @@
 <div class="container-fluid margen-izquierdo">                               <!-- se ajusta dependiendo el ancho de PagWeb-->
     <div class="row">                                       <!--  Introduce las filas que desee uno -->
         <div class="col-md-1">                               <!-- Asigno el ancho de Columna-->
-            <select class="form-control input-sm"  style="color:#080808;font-weight:bolder;" ng-model="semana">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-                <option>6</option>
-                <option>7</option>
-                <option>8</option>
-                <option>9</option>
-                <option>10</option>
-                <option>11</option>
-                <option>12</option>
-                <option>13</option>
-                <option>14</option>
-            </select>
+            <md-input-container style="margin-right: 10px;">
+                <label>Semana</label>
+                <md-select ng-model="size">
+                    <md-option ng-repeat="tamanio in tamanios" value="{{tamanio}}">{{tamanio.tamano}}</md-option>
+                </md-select>
+            </md-input-container>
         </div>
         <div class="col-md-4">
             <div class="form-group">
@@ -41,53 +31,20 @@
             </div>
         </div>
         <div class="col-md-3">
-            <select class="form-control input-sm"  style="color:#000000;font-weight:bolder;" ng-model="horario" placeholder="Horario de Clase">
-                <option>07-08:30</option>
-                <option>07-09</option>
-                <option>08:30:10</option>
-                <option>09:11</option>
-                <option>10-11:30</option>
-                <option>11:30-13</option>
-                <option>11-13</option>
-                <option>13-14:30</option>
-                <option>13-15</option>
-                <option>16-18</option>
-                <option>18-20</option>
-                <option>20:30-10</option>
-                <option>20-10</option>
-            </select>
+            <md-input-container style="margin-right: 10px;">
+                <label>Horario</label>
+                <md-select ng-model="size">
+                    <md-option ng-repeat="horario in horarios" value="{{horario}}">{{horario.hora}}</md-option>
+                </md-select>
+            </md-input-container>
         </div>
         <div class="col-md-4">
-            <select  ng-model="sala" class="form-control input-sm"  style="color:#080808;font-weight:bolder;" placeholder="Salones T-">
-                <option>T-101</option>
-                <option>T-102</option>
-                <option>T-10A</option>
-                <option>T-10B</option>
-                <option>T-104</option>
-                <option>T-105</option>
-                <option>T-106</option>
-                <option>T-107</option>
-                <option>T-201</option>
-                <option>T-202</option>
-                <option>T-203</option>
-                <option>T-204</option>
-                <option>T-205</option>
-                <option>T-206</option>
-                <option>SE</option>
-                <option>T-301</option>
-                <option>T-302</option>
-                <option>T-303</option>
-                <option>T-304</option>
-                <option>T-305</option>
-                <option>T-401</option>
-                <option>T-402</option>
-                <option>T-403</option>
-                <option>T-404</option>
-                <option>T-405</option>
-                <option>T-406</option>
-                <option>T-407</option>
-                <option>T-408</option>
-            </select>
+            <md-input-container style="margin-right: 10px;">
+                <label>Salones</label>
+                <md-select ng-model="size">
+                    <md-option ng-repeat="salon in salones" value="{{salon}}">{{salon.sala}}</md-option>
+                </md-select>
+            </md-input-container>
         </div>
     </div><br>
     <div class="row" ng-model="Profe">
@@ -303,5 +260,10 @@
 
     </div>
 </div>
+
+
+
+
+
 </body>
 </html>
