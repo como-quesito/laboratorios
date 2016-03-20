@@ -19,21 +19,21 @@
         <div class="col-md-1">                               <!-- Asigno el ancho de Columna-->
             <md-input-container style="margin-right: 10px;">
                 <label>Semana</label>
-                <md-select ng-model="size">
+                <md-select ng-model="miSemana">
                     <md-option ng-repeat="tamanio in tamanios" value="{{tamanio}}">{{tamanio.tamano}}</md-option>
                 </md-select>
             </md-input-container>
         </div>
         <div class="col-md-4">
             <div class="form-group">
-                <!--CALENDARIO -->
+                <!--CALENDARIO caldasas -->
                 <md-datepicker ng-model="miFechaIncidencia" md-placeholder="Selecciona una fecha"></md-datepicker>
             </div>
         </div>
         <div class="col-md-3">
             <md-input-container style="margin-right: 10px;">
                 <label>Horario</label>
-                <md-select ng-model="size">
+                <md-select ng-model="miHorario">
                     <md-option ng-repeat="horario in horarios" value="{{horario}}">{{horario.hora}}</md-option>
                 </md-select>
             </md-input-container>
@@ -41,7 +41,7 @@
         <div class="col-md-4">
             <md-input-container style="margin-right: 10px;">
                 <label>Salones</label>
-                <md-select ng-model="size">
+                <md-select ng-model="miSalon">
                     <md-option ng-repeat="salon in salones" value="{{salon}}">{{salon.sala}}</md-option>
                 </md-select>
             </md-input-container>
@@ -67,7 +67,7 @@
                             <span md-highlight-text="searchText" md-highlight-flags="^i">{{item.display}}</span>
                         </md-item-template>
                         <md-not-found>
-                            Ninguna ocurrencia se encontro "{{searchText}}" para este dato :'(
+                            No se encontro ningna ocurrencia "{{searchText}}" para este dato :'(
 
                         </md-not-found>
 

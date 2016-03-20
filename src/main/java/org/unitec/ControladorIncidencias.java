@@ -25,8 +25,8 @@ public class ControladorIncidencias {
         //Creamos un objeto
           ObjectMapper maper=new ObjectMapper();
       Incidencia incidencia=maper.readValue(json, Incidencia.class);
-        System.out.println("<<<<< SE activo guardar incidencia con"+incidencia);
-      //  servicio.agregarIncidencia(a);
+        System.out.println("<<<<< SE activo guardar incidencia con"+json);
+       //servicio.agregarIncidencia(incidencia);
 
         //Creamos un mensajito para retransmitirlo al cliente
         Mensaje mensa=new Mensaje();
@@ -34,6 +34,21 @@ public class ControladorIncidencias {
         mensa.setStatus(true);
 
         return maper.writeValueAsString(mensa);
+
+
+    }
+
+    @RequestMapping(value="/incidencia", method= RequestMethod.GET,headers={"Accept=application/json"})
+    @ResponseBody
+    String buscartodos()throws Exception {
+
+        ObjectMapper maper=new ObjectMapper();
+        return maper.writeValueAsString(servicio.obtenerTodos());
+
+
+
+
+
     }
 
 }

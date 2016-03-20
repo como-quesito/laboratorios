@@ -338,6 +338,9 @@ angular.module('inicio',['ngRoute','ngResource','ngFileUpload','ngMaterial', 'ng
             ,{sala:'T-107'},{sala:'T-201'},{sala:'T-202'},{sala:'T-203'},{sala:'T-204'},{sala:'T-205'},{sala:'T-206'},{sala:'T-301'},
             {sala:'T-302'},{sala:'T-303'},{sala:'T-304'},{sala:'T-305'},{sala:'T-401'},{sala:'T-402'},{sala:'T-403'},
             {sala:'T-404'},{sala:'T-405'},{sala:'T-406'},{sala:'T-407'},{sala:'T-408'}];
+        $scope.miSemana;
+        $scope.miHorario;
+        $scope.miSalon;
 
 
     /*
@@ -412,6 +415,7 @@ angular.module('inicio',['ngRoute','ngResource','ngFileUpload','ngMaterial', 'ng
 
 
     $scope.guardarIncidencia=function(){
+//Transformamos los tipos d dato al correspondiente cuando no son string
 
         //Creamos una Incidencia como clase con ayuda de los ng-model
         var incidencia =new Incidencia({
@@ -419,7 +423,7 @@ angular.module('inicio',['ngRoute','ngResource','ngFileUpload','ngMaterial', 'ng
            "reporta":$scope.reporta,
             "horario":$scope.horario,
             "fecha":$scope.miFechaIncidencia,
-            "semana":$scope.semana,
+            "semana":5,
             "nupc":$scope.Nupc,
             "coal":$scope.CoAl,
             "copr":$scope.CoPr,
@@ -431,6 +435,7 @@ angular.module('inicio',['ngRoute','ngResource','ngFileUpload','ngMaterial', 'ng
         //LA SOMETEMOS AL METODO POST
         incidencia.$crear(function (mensaje) {
             console.log(mensaje.titulo);
+            console.log("Valor que envia"+$scope.miSemana);
 
 
             //Abrimos la ventanita de dialogos

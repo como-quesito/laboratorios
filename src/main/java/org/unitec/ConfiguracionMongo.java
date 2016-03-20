@@ -26,7 +26,7 @@ public class ConfiguracionMongo extends AbstractMongoConfiguration{
 
     @Bean
     public SimpleMongoDbFactory mongoDbFactory()throws Exception{
-      MongoURI uri=new MongoURI("mongodb://campitos:raton@ds035563.mongolab.com:35563/unitec");
+      MongoURI uri=new MongoURI("mongodb://ian:bd107786@ds035583.mlab.com:35583/base-incidencias");
         //Si no existe genera la siguiente base de datos
    //   MongoURI uri=new MongoURI("mongodb://localhost:27017/base-laboratorios");
 
