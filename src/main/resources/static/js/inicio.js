@@ -328,8 +328,8 @@ angular.module('inicio',['ngRoute','ngResource','ngFileUpload','ngMaterial', 'ng
 
         console.log("Controlador Incidencias")
 
-        $scope.tamanios=[{tamano:'1'},{tamano:'2'},{ tamano:'3'},{tamano:'4'},{tamano:'5'},{tamano:'6'},{tamano:'7'}
-            ,{tamano:'8'},{tamano:'9'},{tamano:'10'},{tamano:'11'},{tamano:'12'},{tamano:'13'},{tamano:'14'}];
+        $scope.tamanios=[{"tamano":'1'},{"tamano":'2'},{ "tamano":'3'},{"tamano":'4'},{"tamano":'5'},{"tamano":'6'},{"tamano":'7'}
+            ,{"tamano":'8'},{"tamano":'9'},{"tamano":'10'},{"tamano":'11'},{"tamano":'12'},{"tamano":'13'},{"tamano":'14'}];
 
         $scope.horarios=[{hora:'07-09'},{hora:'07-08:30'},{ hora:'08:30-10'},{hora:'09-11'},{hora:'10-11:30'},{hora:'11-13'},{hora:'11:30-13'}
             ,{hora:'13-15'},{hora:'14-16'},{hora:'16-18'},{hora:'16-20'},{hora:'18-20'},{hora:'19-20:30'},{hora:'20-22'},{hora:'20:30-22'}];
@@ -341,6 +341,7 @@ angular.module('inicio',['ngRoute','ngResource','ngFileUpload','ngMaterial', 'ng
         $scope.miSemana;
         $scope.miHorario;
         $scope.miSalon;
+
 
 
     /*
@@ -421,9 +422,9 @@ angular.module('inicio',['ngRoute','ngResource','ngFileUpload','ngMaterial', 'ng
         var incidencia =new Incidencia({
            "sala":$scope.sala,
            "reporta":$scope.reporta,
-            "horario":$scope.horario,
+            "horario":JSON.parse($scope.miHorario).hora,
             "fecha":$scope.miFechaIncidencia,
-            "semana":5,
+            "semana":JSON.parse($scope.miSemana).tamano,
             "nupc":$scope.Nupc,
             "coal":$scope.CoAl,
             "copr":$scope.CoPr,
@@ -432,10 +433,15 @@ angular.module('inicio',['ngRoute','ngResource','ngFileUpload','ngMaterial', 'ng
 
 
         });
+
+        $scope.tamanio="";
         //LA SOMETEMOS AL METODO POST
         incidencia.$crear(function (mensaje) {
             console.log(mensaje.titulo);
-            console.log("Valor que envia"+$scope.miSemana);
+           //  semanita=$scope.miSemana;
+
+            var json = JSON.parse($scope.miSemana);
+            console.log("Valor que envia"+JSON.parse($scope.miSemana).tamano);
 
 
             //Abrimos la ventanita de dialogos

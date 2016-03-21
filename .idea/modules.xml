@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/laboratorios.iml" filepath="$PROJECT_DIR$/laboratorios.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/laboratorios.iml" filepath="$PROJECT_DIR$/.idea/modules/laboratorios.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/laboratorios_main.iml" filepath="$PROJECT_DIR$/.idea/modules/laboratorios_main.iml" group="laboratorios" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/laboratorios_test.iml" filepath="$PROJECT_DIR$/.idea/modules/laboratorios_test.iml" group="laboratorios" />
     </modules>
   </component>
 </project>
