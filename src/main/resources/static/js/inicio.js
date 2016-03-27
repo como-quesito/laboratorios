@@ -328,8 +328,8 @@ angular.module('inicio',['ngRoute','ngResource','ngFileUpload','ngMaterial', 'ng
 
         console.log("Controlador Incidencias")
 
-        $scope.tamanios=[{"tamano":'1'},{"tamano":'2'},{ "tamano":'3'},{"tamano":'4'},{"tamano":'5'},{"tamano":'6'},{"tamano":'7'}
-            ,{"tamano":'8'},{"tamano":'9'},{"tamano":'10'},{"tamano":'11'},{"tamano":'12'},{"tamano":'13'},{"tamano":'14'}];
+        $scope.tamanios=[{"tamano":1},{"tamano":2},{ "tamano":3},{"tamano":4},{"tamano":5},{"tamano":6},{"tamano":7}
+            ,{"tamano":8},{"tamano":9},{"tamano":10},{"tamano":11},{"tamano":12},{"tamano":13},{"tamano":14}];
 
         $scope.horarios=[{hora:'07-09'},{hora:'07-08:30'},{ hora:'08:30-10'},{hora:'09-11'},{hora:'10-11:30'},{hora:'11-13'},{hora:'11:30-13'}
             ,{hora:'13-15'},{hora:'14-16'},{hora:'16-18'},{hora:'16-20'},{hora:'18-20'},{hora:'19-20:30'},{hora:'20-22'},{hora:'20:30-22'}];
@@ -420,7 +420,7 @@ angular.module('inicio',['ngRoute','ngResource','ngFileUpload','ngMaterial', 'ng
 
         //Creamos una Incidencia como clase con ayuda de los ng-model
         var incidencia =new Incidencia({
-           "sala":$scope.sala,
+           "sala":JSON.parse($scope.miSalon).sala,
            "reporta":$scope.reporta,
             "horario":JSON.parse($scope.miHorario).hora,
             "fecha":$scope.miFechaIncidencia,
