@@ -43,7 +43,7 @@ Date date=new Date(fecha);
         Row row = sheet.getRow(1);
         Cell cell = row.getCell(1);
         if (cell == null)cell = row.createCell(2);
-        cell.setCellType(Cell.CELL_TYPE_STRING);
+        cell.setCellType(Cell.CELL_TYPE_NUMERIC);
         cell.setCellValue(clave);
 
         //

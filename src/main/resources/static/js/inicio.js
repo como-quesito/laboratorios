@@ -417,7 +417,7 @@ angular.module('inicio',['ngRoute','ngResource','ngFileUpload','ngMaterial', 'ng
 
     $scope.guardarIncidencia=function(){
 //Transformamos los tipos d dato al correspondiente cuando no son string
-
+ console.log('Valor del profesor '$scope.Profe);
         //Creamos una Incidencia como clase con ayuda de los ng-model
         var incidencia =new Incidencia({
            "sala":JSON.parse($scope.miSalon).sala,
