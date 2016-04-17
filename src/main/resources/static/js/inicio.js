@@ -321,7 +321,7 @@ angular.module('inicio',['ngRoute','ngResource','ngFileUpload','ngMaterial', 'ng
 
 
 }).controller('incidencias',function($rootScope,$scope,Upload, $timeout,$rootScope, $http,$resource,$log, $mdDialog, $q){
-
+  $scope.Profe="ningun";
     // REST PAREA INCIDENCIAS LA DEFINIMOS GLOBALMENTE DENTRO DE CONTROLADOR
     var Incidencia=$resource('incidencia/:id',{id:'@id'},{crear:{method:'POST'},
         actualizar:{method:'PUT'}, borrar:{method:'DELETE'}});
@@ -338,6 +338,27 @@ angular.module('inicio',['ngRoute','ngResource','ngFileUpload','ngMaterial', 'ng
             ,{sala:'T-107'},{sala:'T-201'},{sala:'T-202'},{sala:'T-203'},{sala:'T-204'},{sala:'T-205'},{sala:'T-206'},{sala:'T-301'},
             {sala:'T-302'},{sala:'T-303'},{sala:'T-304'},{sala:'T-305'},{sala:'T-401'},{sala:'T-402'},{sala:'T-403'},
             {sala:'T-404'},{sala:'T-405'},{sala:'T-406'},{sala:'T-407'},{sala:'T-408'}];
+
+       $scope.isCheckedia1=false;
+       $scope.isCheckedia2=false;
+       $scope.isCheckedia3=false;
+
+       $scope.isCheckedia30=false;
+       $scope.isCheckedia31=false;
+       $scope.isCheckedia32=false;
+       $scope.isCheckedia33=false;
+
+
+
+            $scope.incidenciasAlumnosSeleccionadas=[];
+            $scope.incidenciasProfesoresSeleccionadas=[];
+
+            $scope.incidenciasProfesores=[{nombre:'luces prendidas'},{nombre:'maquinas prendidas'},
+            {nombre:'mesa rayada'},{nombre:'pcs desconectadas'},{nombre:'pierde la llave de la sala'},
+            {nombre:'pizarron sucio'},{nombre:'sala abierta'},{nombre:'sala desordenada'},
+            {nombre:'sala sucia'},{nombre:'salida tarde'},{nombre:'se lleva la llave  de la sala'}];
+
+
         $scope.miSemana;
         $scope.miHorario;
         $scope.miSalon;
@@ -417,8 +438,32 @@ angular.module('inicio',['ngRoute','ngResource','ngFileUpload','ngMaterial', 'ng
 
     $scope.guardarIncidencia=function(){
 //Transformamos los tipos d dato al correspondiente cuando no son string
- console.log('Valor del profesor '$scope.Profe);
+/*
+En material design el selectItem s un obejto json que ya no necesita hacerse
+un parcin como se hizo en la semana y horario, en esos utimos si se requiriop porque
+angular materia los veia como ARREGLOS FLORALES JAJAJA JSON, Y EL SEELCTO DEL BUSCADOR
+es decir el item select si lo pone como objeto jsn, por ello solo es necesario en esa vaiable
+que es objeto json invocar las propiedades  (display y value , en este caso) como se hace en un
+obejto json y se muestra en el renglon :Profe '+$scope.selectedItem.value);
+*/
+//console.log('Profe '+JSON.stringify($scope.selectedItem));
+console.log('Profe '+$scope.selectedItem.value);
         //Creamos una Incidencia como clase con ayuda de los ng-model
+$scope.incidenciasAlumnos=[];
+   $scope.incidenciasAlumnosSeleccionadas.push({nombre:'alumnos con bebidas', cometida:$scope.isCheckedia1});
+   $scope.incidenciasAlumnosSeleccionadas.push({nombre:'alumnos con celulares', cometida:$scope.isCheckedia2});
+   $scope.incidenciasAlumnosSeleccionadas.push({nombre:'alumnos con gorras', cometida:$scope.isCheckedia3});
+           console.log("malo   "+JSON.stringify($scope.incidenciasAlumnos));
+           console.log("Holaa  "+JSON.stringify($scope.incidenciasAlumnosSeleccionadas));
+
+$scope.incidenciasProfesores=[];
+   $scope.incidenciasProfesoresSeleccionadas.push({nombre:'Luces Prendidas', cometida:$scope.isCheckedia30});
+   $scope.incidenciasProfesoresSeleccionadas.push({nombre:'Maquinas Prendidas', cometida:$scope.isCheckedia31});
+   $scope.incidenciasProfesoresSeleccionadas.push({nombre:'Mesa rayada', cometida:$scope.isCheckedia32});
+   $scope.incidenciasProfesoresSeleccionadas.push({nombre:'Pc´s Desconectadas ', cometida:$scope.isCheckedia33});
+           console.log("malo   "+JSON.stringify($scope.incidenciasProfesores));
+           console.log("Holaa  "+JSON.stringify($scope.incidenciasProfesoresSeleccionadas));
+
         var incidencia =new Incidencia({
            "sala":JSON.parse($scope.miSalon).sala,
            "reporta":$scope.reporta,
@@ -429,8 +474,9 @@ angular.module('inicio',['ngRoute','ngResource','ngFileUpload','ngMaterial', 'ng
             "coal":$scope.CoAl,
             "copr":$scope.CoPr,
             "obge":$scope.ObGe,
-            "profe":$scope.Profe
-
+            "profe":$scope.selectedItem.display,
+            "incidenciasAlumnos":$scope.incidenciasAlumnosSeleccionadas,
+            "incidenciasProfesores":$scope.incidenciasProfesoresSeleccionadas
 
         });
 

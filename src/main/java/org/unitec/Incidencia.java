@@ -3,6 +3,7 @@ package org.unitec;
 import org.joda.time.DateTime;
 import org.springframework.data.annotation.Id;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -21,6 +22,24 @@ public class Incidencia {
     String copr;
     String obge;
     String profe;
+    ArrayList<IncidenciaAlumno> incidenciasAlumnos;
+    ArrayList<IncidenciaProfesor> incidenciasProfesores;
+
+    public ArrayList<IncidenciaAlumno> getIncidenciasAlumnos() {
+        return incidenciasAlumnos;
+    }
+
+    public void setIncidenciasAlumnos(ArrayList<IncidenciaAlumno> incidenciasAlumnos) {
+        this.incidenciasAlumnos = incidenciasAlumnos;
+    }
+
+    public ArrayList<IncidenciaProfesor> getIncidenciasProfesores() {
+        return incidenciasProfesores;
+    }
+
+    public void setIncidenciasProfesores(ArrayList<IncidenciaProfesor> incidenciasProfesores) {
+        this.incidenciasProfesores = incidenciasProfesores;
+    }
 
     public String getProfe() {
         return profe;
